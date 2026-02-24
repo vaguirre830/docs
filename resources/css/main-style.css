@@ -13,6 +13,10 @@ body {
     margin: 0; /* Resets default body margins */
 }
 
+div.container {
+    padding-bottom: 4%;
+}
+
 div.section {
     margin-bottom: 5%;
 }
