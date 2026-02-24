@@ -3,6 +3,7 @@ html {
     justify-content: center; /* Centers content horizontally */
     min-height: 100%; /* Ensures the html element spans the full height */
     width: 100%;
+    margin-top: 4%;
 }
 
 body {
@@ -28,6 +29,7 @@ tr {
 
 td.fastener {
    width: 66%;
+   padding-left: 5px;
 }
 
 td.torque-lbft {
@@ -36,4 +38,8 @@ td.torque-lbft {
 
 td.torque-kgm {
    width: 17%;
+}
+
+p.warning {
+    margin-top: 3%;
 }
