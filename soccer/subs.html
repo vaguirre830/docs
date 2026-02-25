@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sub Window Timer</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        transition: background-color 0.5s;
+        color: white;
+        text-align: center;
+    }
+
+    #timer {
+        font-size: 6rem;
+        font-weight: bold;
+    }
+
+    #status {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .controls {
+        margin-top: 20px;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    input {
+        width: 60px;
+        font-size: 1rem;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<div id="status">RED - Play Phase</div>
+<div id="timer">06:00</div>
+
+<div class="controls">
+    Red Minutes: <input type="number" id="redMinutes" value="6" min="1">
+    Green Minutes: <input type="number" id="greenMinutes" value="2" min="1">
+    <br><br>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="pauseTimer()">Pause</button>
+    <button onclick="resetTimer()">Reset</button>
+</div>
+
+<script>
+let timer;
+let isRunning = false;
+let isGreenPhase = false;
+let timeRemaining;
+
+const timerDisplay = document.getElementById("timer");
+const statusDisplay = document.getElementById("status");
+
+function beep() {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioCtx.createOscillator();
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
+    oscillator.connect(audioCtx.destination);
+    oscillator.start();
+    oscillator.stop(audioCtx.currentTime + 0.5);
+}
+
+function updateDisplay() {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+    timerDisplay.textContent = 
+        String(minutes).padStart(2, '0') + ":" + 
+        String(seconds).padStart(2, '0');
+}
+
+function switchPhase() {
+    beep();
+    isGreenPhase = !isGreenPhase;
+
+    const redMin = parseInt(document.getElementById("redMinutes").value) * 60;
+    const greenMin = parseInt(document.getElementById("greenMinutes").value) * 60;
+
+    timeRemaining = isGreenPhase ? greenMin : redMin;
+
+    document.body.style.backgroundColor = isGreenPhase ? "green" : "red";
+    statusDisplay.textContent = isGreenPhase 
+        ? "GREEN - Sub Window Open" 
+        : "RED - Play Phase";
+
+    updateDisplay();
+}
+
+function tick() {
+    if (timeRemaining > 0) {
+        timeRemaining--;
+        updateDisplay();
+    } else {
+        switchPhase();
+    }
+}
+
+function startTimer() {
+    if (isRunning) return;
+
+    if (timeRemaining === undefined) {
+        timeRemaining = parseInt(document.getElementById("redMinutes").value) * 60;
+        document.body.style.backgroundColor = "red";
+    }
+
+    isRunning = true;
+    timer = setInterval(tick, 1000);
+}
+
+function pauseTimer() {
+    isRunning = false;
+    clearInterval(timer);
+}
+
+function resetTimer() {
+    pauseTimer();
+    isGreenPhase = false;
+    timeRemaining = parseInt(document.getElementById("redMinutes").value) * 60;
+    document.body.style.backgroundColor = "red";
+    statusDisplay.textContent = "RED - Play Phase";
+    updateDisplay();
+}
+
+resetTimer();
+</script>
+
+</body>
+</html>
