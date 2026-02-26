@@ -19,7 +19,7 @@
     }
 
     #timer {
-        font-size: 6rem;
+        font-size: 8rem;
         font-weight: bold;
     }
 
@@ -54,7 +54,7 @@
 <body>
 
 <div id="status">PLAY - NO SUBS</div>
-<div id="timer">08:00</div>
+<div id="timer">07:00</div>
 
 <div class="controls">
     Red Minutes: <input type="number" id="redMinutes" value="7" min="1">
@@ -103,7 +103,7 @@ function switchPhase() {
 
     document.body.style.backgroundColor = isGreenPhase ? "green" : "red";
     statusDisplay.textContent = isGreenPhase 
-        ? "SUBS OPEN" 
+        ? "SUBS OPEN (when WE have the ball!)" 
         : "PLAY - NO SUBS";
 
     updateDisplay();
