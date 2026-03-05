@@ -50,4 +50,6 @@ p.warning {
 
 img {
     width: 300px;
+    border: 4px solid gray;
+    border-radius: 8px;
 }
