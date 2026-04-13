@@ -1,16 +1,23 @@
 html {
     display: flex;
-    justify-content: center; /* Centers content horizontally */
-    min-height: 100%; /* Ensures the html element spans the full height */
+    justify-content: center;
+    min-height: 100%;
     width: 100%;
     margin-top: 4%;
 }
 
 body {
-    /* Optional: Add a max-width and margin adjustments for a traditional "boxed" layout */
-    max-width: 800px; /* Example width */
+    max-width: 800px;
     width: 100%;
-    margin: 0; /* Resets default body margins */
+    margin: 0;
+    /*basic watermark for site*/
+    background-color: white;
+    background-image: url("data:image/svg+xml,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>\
+      <text x='10' y='100' font-size='20' fill='rgba(0,0,0,0.08)' \
+            transform='rotate(-30 100 100)'>docs.muramoto.us</text>\
+    </svg>");
+    background-repeat: repeat;
 }
 
 div.container {
