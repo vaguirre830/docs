@@ -4,20 +4,20 @@ html {
     min-height: 100%;
     width: 100%;
     margin-top: 4%;
+    /*basic watermark for entire site*/
+    background-color: white;
+    background-image: url("data:image/svg+xml,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'>\
+      <text x='10' y='100' font-size='30' fill='rgba(0,0,0,0.05)' \
+            transform='rotate(-30 100 100)'>docs.muramoto.us</text>\
+    </svg>");
+    background-repeat: repeat;
 }
 
 body {
     max-width: 800px;
     width: 100%;
     margin: 0;
-    /*basic watermark for site*/
-    background-color: white;
-    background-image: url("data:image/svg+xml,\
-    <svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'>\
-      <text x='10' y='100' font-size='20' fill='rgba(0,0,0,0.08)' \
-            transform='rotate(-30 100 100)'>docs.muramoto.us</text>\
-    </svg>");
-    background-repeat: repeat;
 }
 
 div.container {
