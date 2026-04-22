@@ -27,6 +27,8 @@ div.section {
 table {
     width: 100%;
     border: 1px solid;
+    border-collapse: separate;
+    table-layout: fixed;
 }
 
 tr {
