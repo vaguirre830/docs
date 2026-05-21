@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Bruce",
+    "number": 43,
+    "present": true
+  },
+  {
+    "name": "Jake",
+    "number": 29,
+    "present": true
+  },
+  {
+    "name": "Phoenix",
+    "number": 44,
+    "present": true
+  },
+  {
+    "name": "Kate",
+    "number": 7,
+    "present": true
+  },
+  {
+    "name": "Zion",
+    "number": 48,
+    "present": true
+  },
+  {
+    "name": "John",
+    "number": 19,
+    "present": true
+  },
+  {
+    "name": "Mya",
+    "number": 42,
+    "present": true
+  },
+  {
+    "name": "Isaac",
+    "number": 5,
+    "present": true
+  }
+]
