@@ -1,0 +1,12 @@
+[
+  {
+    "displayName": "Sticky Geckos",
+    "storageKey": "team01",
+    "url": "https://docs.muramoto.us/soccer/players_team01.json"
+  },
+  {
+    "displayName": "Monster Mutts",
+    "storageKey": "team02",
+    "url": "https://docs.muramoto.us/soccer/players_team02.json"
+  }
+]
