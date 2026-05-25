@@ -10,6 +10,13 @@
     "displayName": "Monster Mutts",
     "storageKey": "team02",
     "url": "https://docs.muramoto.us/soccer/players_team02.json",
+    "maxPlayersPerQuarter": 7,
+    "totalQuarters": 4
+  },
+  {
+    "displayName": "Basketball Test",
+    "storageKey": "team03",
+    "url": "https://docs.muramoto.us/soccer/players_team03.json",
     "maxPlayersPerQuarter": 5,
     "totalQuarters": 8
   }
