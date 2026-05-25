@@ -1,0 +1,51 @@
+[
+  {
+    "name": "London",
+    "number": 29,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Rishi",
+    "number": 44,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Brennan",
+    "number": 7,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Miles",
+    "number": 48,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Penny",
+    "number": 19,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Legend",
+    "number": 42,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Jayce",
+    "number": 5,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  }
+]
