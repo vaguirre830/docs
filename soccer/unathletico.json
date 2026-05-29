@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "name": "Bill",
+    "position": "ST",
+    "onField": true
+  },
+  {
+    "id": "4",
+    "name": "Atin",
+    "position": "ST",
+    "onField": false
+  },
+  {
+    "id": "8",
+    "name": "Eden",
+    "position": "ST",
+    "onField": false
+  },
+  {
+    "id": "9",
+    "name": "Edwin",
+    "position": "ST",
+    "onField": true
+  },
+  {
+    "id": "5",
+    "name": "Jerry",
+    "position": "MID",
+    "onField": true
+  },
+  {
+    "id": "6",
+    "name": "Cal",
+    "position": "MID",
+    "onField": true
+  },
+  {
+    "id": "7",
+    "name": "David M",
+    "position": "MID",
+    "onField": false
+  },
+  {
+    "id": "2",
+    "name": "Victor",
+    "position": "MID",
+    "onField": false
+  },
+  {
+    "id": "3",
+    "name": "Raul",
+    "position": "MID",
+    "onField": false
+  },
+  {
+    "id": "10",
+    "name": "Fernando",
+    "position": "DEF",
+    "onField": true
+  },
+  {
+    "id": "11",
+    "name": "Memo",
+    "position": "DEF",
+    "onField": true
+  },
+  {
+    "id": "12",
+    "name": "Jimmy",
+    "position": "DEF",
+    "onField": true
+  },
+  {
+    "id": "13",
+    "name": "David R",
+    "position": "DEF",
+    "onField": false
+  }
+]
