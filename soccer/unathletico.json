@@ -13,5 +13,5 @@
   { "id": "12", "name": "Jimmy", "position": "DEF", "onField": true, "offsetX": 850.0, "offsetY": 1200.0 },
   { "id": "13", "name": "Eric", "position": "DEF", "onField": false, "offsetX": 350.0, "offsetY": 1900.0 },
   { "id": "14", "name": "Arturo", "position": "DEF", "onField": false, "offsetX": 550.0, "offsetY": 1900.0 },
-  { "id": "15", "name": "David R", "position": "DEF", "onField": false, "offsetX": 750.0, "offsetY": 1900.0 },
+  { "id": "15", "name": "David R", "position": "DEF", "onField": false, "offsetX": 750.0, "offsetY": 1900.0 }
 ]
