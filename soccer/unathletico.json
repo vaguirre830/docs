@@ -5,11 +5,13 @@
   { "id": "9", "name": "Edwin", "position": "ST", "onField": false, "offsetX": 50.0, "offsetY": 1900.0 },
   { "id": "5", "name": "Jerry", "position": "MID", "onField": true, "offsetX": 50.0, "offsetY": 600.0 },
   { "id": "6", "name": "Cal", "position": "MID", "onField": true, "offsetX": 450.0, "offsetY": 800.0 },
-  { "id": "7", "name": "David M", "position": "MID", "onField": true, "offsetX": 850.0, "offsetY": 600.0 },
-  { "id": "2", "name": "Victor", "position": "MID", "onField": false, "offsetX": 850.0, "offsetY": 600.0 },
-  { "id": "3", "name": "Raul", "position": "MID", "onField": false, "offsetX": 50.0, "offsetY": 2100.0 },
+  { "id": "7", "name": "Victor", "position": "MID", "onField": true, "offsetX": 850.0, "offsetY": 600.0 },
+  { "id": "2", "name": "David M", "position": "MID", "onField": false, "offsetX": 850.0, "offsetY": 600.0 },
+  { "id": "3", "name": "Adam", "position": "MID", "onField": false, "offsetX": 50.0, "offsetY": 2100.0 },
   { "id": "10", "name": "Fernando", "position": "DEF", "onField": true, "offsetX": 50.0, "offsetY": 1200.0 },
   { "id": "11", "name": "Memo", "position": "DEF", "onField": true, "offsetX": 450.0, "offsetY": 1400.0 },
   { "id": "12", "name": "Jimmy", "position": "DEF", "onField": true, "offsetX": 850.0, "offsetY": 1200.0 },
-  { "id": "13", "name": "David R", "position": "DEF", "onField": false, "offsetX": 350.0, "offsetY": 1900.0 }
+  { "id": "13", "name": "Eric", "position": "DEF", "onField": false, "offsetX": 350.0, "offsetY": 1900.0 },
+  { "id": "13", "name": "Arturo", "position": "DEF", "onField": false, "offsetX": 550.0, "offsetY": 1900.0 },
+  { "id": "13", "name": "David R", "position": "DEF", "onField": false, "offsetX": 750.0, "offsetY": 1900.0 },
 ]
