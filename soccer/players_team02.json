@@ -1,6 +1,6 @@
 [
   {
-    "name": "Damien",
+    "name": "Kai",
     "number": 29,
     "present": true,
     "quarters": [false, false, false, false],
@@ -14,35 +14,49 @@
     "isGoalie": false
   },
   {
-    "name": "Kate",
+    "name": "Caleb",
     "number": 7,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "Zion",
+    "name": "Idris",
     "number": 48,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "Jack",
+    "name": "Isabella",
     "number": 19,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "Kai",
+    "name": "Cameron",
     "number": 42,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "Jemma",
+    "name": "Chloe",
+    "number": 5,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Lauren",
+    "number": 5,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Charlotte",
     "number": 5,
     "present": true,
     "quarters": [false, false, false, false],
