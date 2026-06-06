@@ -7,49 +7,77 @@
     "isGoalie": false
   },
   {
-    "name": "Jake",
+    "name": "Haochen",
     "number": 29,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "Phoenix",
+    "name": "Carson",
     "number": 44,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "Kate",
+    "name": "Tyler",
     "number": 7,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "Zion",
+    "name": "John",
     "number": 48,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "John",
+    "name": "Zoe",
     "number": 19,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "Mya",
+    "name": "Isaac",
     "number": 42,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
-    "name": "Isaac",
+    "name": "Jon Paul",
+    "number": 5,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Noah",
+    "number": 5,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Logan",
+    "number": 5,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Ava",
+    "number": 5,
+    "present": true,
+    "quarters": [false, false, false, false],
+    "isGoalie": false
+  },
+  {
+    "name": "Justin",
     "number": 5,
     "present": true,
     "quarters": [false, false, false, false],
