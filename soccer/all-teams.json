@@ -1,13 +1,13 @@
 [
   {
-    "displayName": "Sticky Geckos",
+    "displayName": "Blue Shell Strikers",
     "storageKey": "team01",
     "url": "https://docs.muramoto.us/soccer/players_team01.json",
-    "maxPlayersPerQuarter": 7,
+    "maxPlayersPerQuarter": 9,
     "totalQuarters": 4
   },
   {
-    "displayName": "Monster Mutts",
+    "displayName": "Donut Drifters",
     "storageKey": "team02",
     "url": "https://docs.muramoto.us/soccer/players_team02.json",
     "maxPlayersPerQuarter": 7,
