@@ -50,14 +50,14 @@
   },
   {
     "name": "Lauren",
-    "number": 5,
+    "number": 6,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
   },
   {
     "name": "Charlotte",
-    "number": 5,
+    "number": 8,
     "present": true,
     "quarters": [false, false, false, false],
     "isGoalie": false
