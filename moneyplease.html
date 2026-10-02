@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Expense Tracker</title>
+    <title>Money Please!</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -191,10 +191,10 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Created</th>
                         <th>Description</th>
-                        <th>Category</th>
                         <th>Amount</th>
+                        <th>Category</th>
+                        <th>Created</th>
                     </tr>
                 </thead>
                 <tbody id="itemList">
@@ -245,10 +245,10 @@
                 const formattedAmount = item.amount ? `$${parseFloat(item.amount).toFixed(2)}` : '$0.00';
 
                 tr.innerHTML = `
-                    <td>${escapeHtml(createdDate)}</td>
                     <td><strong>${escapeHtml(item.description)}</strong></td>
-                    <td><span class="badge">${escapeHtml(item.category)}</span></td>
                     <td class="amount">${escapeHtml(formattedAmount)}</td>
+                    <td><span class="badge">${escapeHtml(item.category)}</span></td>
+                    <td>${escapeHtml(createdDate)}</td>
                 `;
                 tbody.appendChild(tr);
             });
