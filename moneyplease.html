@@ -304,13 +304,13 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Saving...';
 
+        //created: new Date().toISOString()
         const newItem = {
             key: API_KEY, // Pass secret key in POST body
             description: document.getElementById('description').value.trim(),
             amount: document.getElementById('amount').value,
             category: document.getElementById('category').value,
-            //created: new Date().toISOString()
-            created: new Date().toLocaleString().replace(/,/g, '');
+            created: new Date().toLocaleString().replace(/,/g, '')
         };
 
         try {
