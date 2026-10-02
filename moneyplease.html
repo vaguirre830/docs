@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Please!</title>
+    <title>Family Expense Tracker</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -12,6 +12,7 @@
             --card-bg: #ffffff;
             --text: #1e293b;
             --border: #e2e8f0;
+            --danger: #ef4444;
         }
 
         body {
@@ -139,6 +140,16 @@
             color: #94a3b8;
             padding: 2rem;
         }
+
+        .unauthorized-card {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--danger);
+        }
+
+        .unauthorized-card h2 {
+            margin-top: 0;
+        }
     </style>
 </head>
 <body>
@@ -149,78 +160,108 @@
         <p>Log shared expenses and view recent transactions.</p>
     </header>
 
-    <!-- Expense Entry Form Card -->
-    <div class="card">
-        <h3>Add New Expense</h3>
-        <form id="expenseForm">
-            <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" id="description" placeholder="e.g., Grocery shopping" required>
-            </div>
-            <div class="form-group">
-                <label for="amount">Amount ($)</label>
-                <input type="number" id="amount" step="0.01" min="0.01" placeholder="0.00" required>
-            </div>
-            <div class="form-group">
-                <label for="category">Category</label>
-                <select id="category" required>
-                    <option value="" disabled selected>Select category...</option>
-                    <option value="One-Time">One-Time</option>
-                    <option value="Groceries">Groceries</option>
-                    <option value="Bills">Bills</option>
-                    <option value="Restaurant">Restaurant</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Cars">Cars</option>
-                    <option value="Housing">House</option>
-                    <option value="Health">Medical / Health</option>
-                    <option value="Kids">Kids</option>
-                    <option value="Hobbies">Hobbies</option>
-                    <option value="Clothing">Clothing</option>
-                    <option value="Gifts">Gifts</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <button type="submit" id="submitBtn">Add Expense</button>
-        </form>
+    <!-- Unauthorized Access State -->
+    <div id="unauthorizedMessage" class="card unauthorized-card" style="display: none;">
+        <h2>🔒 Access Denied</h2>
+        <p style="color: #64748b;">No access.</p>
     </div>
 
-    <!-- Recent Expenses Table Card -->
-    <div class="card">
-        <h3>Latest 15 Expenses</h3>
-        <div id="tableContainer">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Category</th>
-                        <th>Created</th>
-                    </tr>
-                </thead>
-                <tbody id="itemList">
-                    <!-- Dynamic rows loaded here -->
-                </tbody>
-            </table>
+    <!-- Main Content (Hidden until authorized) -->
+    <div id="appContent" style="display: none;">
+        <!-- Expense Entry Form Card -->
+        <div class="card">
+            <h3>Add New Expense</h3>
+            <form id="expenseForm">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" placeholder="e.g., Grocery shopping" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount ($)</label>
+                    <input type="number" id="amount" step="0.01" min="0.01" placeholder="0.00" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="" disabled selected>Select category...</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Restaurant">Restaurant</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Cars">Cars</option>
+                        <option value="House">House</option>
+                        <option value="Health">Health / Medical</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Hobbies">Hobbies</option>
+                        <option value="Kids">Kids</option>
+                        <option value="One-Time">One-Time</option>
+                        <option value="Gifts">Gifts</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" id="submitBtn">Add Expense</button>
+            </form>
+        </div>
+
+        <!-- Recent Expenses Table Card -->
+        <div class="card">
+            <h3>Latest 15 Expenses</h3>
+            <div id="tableContainer">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemList">
+                        <!-- Dynamic rows loaded here -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
     // ⚠️ REPLACE THIS WITH YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyBW1VbQLO7Kl2CQpQYMsklHYiXa7sPr8OKDsZ7V8VDY_squ1QElFAbuKs1UzLPceM/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyh_pBlyW0gU_QMm15OWkKUSU8Nt7HkK132ScwC9c5VMvoWRKL-C3uCz1dDluJG5cA/exec";
+
+    // 1. Extract 'key' parameter from the current webpage URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const API_KEY = urlParams.get('key');
 
     const form = document.getElementById('expenseForm');
     const submitBtn = document.getElementById('submitBtn');
     const tbody = document.getElementById('itemList');
+    const appContent = document.getElementById('appContent');
+    const unauthorizedMessage = document.getElementById('unauthorizedMessage');
 
-    // 1. Fetch live data from Google Sheets
+    // Check key before showing UI
+    if (!API_KEY) {
+        unauthorizedMessage.style.display = 'block';
+    } else {
+        appContent.style.display = 'block';
+        renderTable();
+    }
+
+    // Fetch live data from Google Sheets
     async function renderTable() {
         tbody.innerHTML = `<tr><td colspan="4" class="empty-state">Loading expenses...</td></tr>`;
         
         try {
-            const response = await fetch(SCRIPT_URL);
+            // Append key parameter to GET request
+            const response = await fetch(`${SCRIPT_URL}?key=${encodeURIComponent(API_KEY)}`);
             const items = await response.json();
             
+            if (items.error) {
+                appContent.style.display = 'none';
+                unauthorizedMessage.style.display = 'block';
+                return;
+            }
+
             tbody.innerHTML = '';
 
             if (!items || items.length === 0) {
@@ -228,13 +269,11 @@
                 return;
             }
 
-            // Extract only the latest 15 records and present newest first
             const recentItems = items.slice(-15).reverse();
 
             recentItems.forEach(item => {
                 const tr = document.createElement('tr');
                 
-                // Format the ISO date string to a readable format
                 const createdDate = item.created ? new Date(item.created).toLocaleString([], {
                     month: 'short',
                     day: 'numeric',
@@ -258,7 +297,7 @@
         }
     }
 
-    // 2. Submit new expense entry to Google Sheets
+    // Submit new expense entry to Google Sheets
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
@@ -266,23 +305,23 @@
         submitBtn.textContent = 'Saving...';
 
         const newItem = {
+            key: API_KEY, // Pass secret key in POST body
             description: document.getElementById('description').value.trim(),
             amount: document.getElementById('amount').value,
             category: document.getElementById('category').value,
-            created: new Date().toISOString() // Dynamic timestamp
+            created: new Date().toISOString()
         };
 
         try {
             await fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Bypasses browser CORS restrictions for Apps Script
+                mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newItem)
             });
 
-            // Reset form and refresh table after submission
             this.reset();
-            setTimeout(renderTable, 1200); // Brief delay for Sheet write latency
+            setTimeout(renderTable, 1200);
         } catch (error) {
             alert('Failed to submit expense. Please try again.');
             console.error('Submission error:', error);
@@ -292,15 +331,11 @@
         }
     });
 
-    // Helper to prevent HTML injection
     function escapeHtml(str) {
         return (str || '').toString().replace(/[&<>'"]/g, 
             tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
         );
     }
-
-    // Load data on page load
-    renderTable();
 </script>
 
 </body>
